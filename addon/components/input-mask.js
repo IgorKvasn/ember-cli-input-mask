@@ -1,11 +1,15 @@
 /* global moment */
 
-import Ember from 'ember';
+import { scheduleOnce } from '@ember/runloop';
 
-export default Ember.TextField.extend({
+import { isPresent } from '@ember/utils';
+import { on } from '@ember/object/evented';
+import TextField from '@ember/component/text-field';
+
+export default TextField.extend({
 
 
-  initializeMask: Ember.on('didInsertElement', function() {
+  initializeMask: on('didInsertElement', function() {
     var mask = this.get('mask');
 
     this.$().inputmask(mask, {
@@ -20,14 +24,14 @@ export default Ember.TextField.extend({
     // formatted version. We need to manually send that change back to the
     // controller.
     // But do this only if initial value is not null/undefined, otherwise
-    if (Ember.isPresent(this.get('value'))) {
-      Ember.run.scheduleOnce('afterRender', this, function(){
+    if (isPresent(this.get('value'))) {
+      scheduleOnce('afterRender', this, function(){
         this.set('value',this.$().val());
       });
    }
   }),
 
-  removeMask: Ember.on('willDestroyElement', function() {
+  removeMask: on('willDestroyElement', function() {
     this.$().inputmask('remove');
   })
 });
