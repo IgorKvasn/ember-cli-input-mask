@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-input-mask",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "An ember-cli addon for creating input masks on text fields.",
   "directories": {
     "doc": "doc",
@@ -8,9 +8,9 @@
   },
   "scripts": {
     "build": "ember build",
-     "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
-     "start": "ember serve",
-     "test": "ember try:each"
+    "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
+    "start": "ember serve",
+    "test": "ember try:each"
   },
   "repository": "https://github.com/AgilionApps/ember-cli-input-mask/",
   "homepage": "https://github.com/AgilionApps/ember-cli-input-mask/blob/master/README.md",
